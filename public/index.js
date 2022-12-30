@@ -265,7 +265,7 @@ function activeAudio(){
 	setTimeout(()=>{
 		soundInicial.play();
 		volumen(0.05);
-	}, 5000)
+	}, 10000)
 }
 
 const volumen = cantidad => document.querySelector(".audio").volume = cantidad; 
