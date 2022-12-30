@@ -4,10 +4,9 @@ const containerEnd = document.getElementById("container-end");
 const button = document.getElementById("play");
 const soundInicial = document.querySelector(".audio")
 var desitionB = false;
-const https = "https://staym.onrender.com";
+const https = "https://staymlawter.onrender.com";
 // http://localhost:7535
-// https://staym.onrender.com
-
+// https://staymlawter.onrender.com
 
 
 // let headers = {
