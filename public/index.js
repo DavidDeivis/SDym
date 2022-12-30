@@ -237,6 +237,7 @@ let apiObservar = new IntersectionObserver(observar);
 function look(d){
 	if(d){
 		desitionB = false;
+		activeAudio();
 	}
 	apiObservar = new IntersectionObserver(observar);
 	apiObservar.observe(document.body);
@@ -248,8 +249,6 @@ function PLAY(){
 	// let comenzar = fetch("http://localhost:7535/play");
 	fetch(`${https}/play`)
 	apiObservar.observe(document.body);
-
-	activeAudio();
 
 }
 
