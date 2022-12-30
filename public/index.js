@@ -4,9 +4,10 @@ const containerEnd = document.getElementById("container-end");
 const button = document.getElementById("play");
 const soundInicial = document.querySelector(".audio")
 var desitionB = false;
-const https = "https://staymlawter.onrender.com";
+const https = "http://192.168.193.63:7535";
 // http://localhost:7535
 // https://staymlawter.onrender.com
+// http://192.168.193.63:7535
 
 
 // let headers = {
@@ -113,18 +114,21 @@ const observar = async entry =>{
 		return;
 	}
 
+
 	if((entry[entry.length - 1].isIntersecting) && desitionB == false){
 
 
 		// console.log("envio")
+
+		entrada = false;
 
 		let peticion = await fetch(`${https}/data`);
 		let res = await peticion.json();
 
 		let res2 = JSON.parse(res);
 
-		entrada = false;
 
+		
 		// console.log(res2);
 
 		if(res2.model == "p"){
@@ -158,8 +162,9 @@ const observar = async entry =>{
 			setTimeout(()=>{
 
 				nodo.pause();
-				entrada = true;
+				
 			 	look();
+			 	entrada = true;
 			 	return;
 
 			}, res2.stop);
@@ -187,6 +192,7 @@ const observar = async entry =>{
 			}
 
 			nodo.appendChild(u);
+			entrada = true;
 		}
 		else if(res2.model == "end"){
 
@@ -227,8 +233,9 @@ const observar = async entry =>{
 			
 			if(res2.model != "d" && res2.model != "s"){
 
-				entrada = true;
+				
 				apiObservar.observe(nodo);
+				entrada = true;
 			}
 
 		}, res2.time);
@@ -246,7 +253,6 @@ let apiObservar = new IntersectionObserver(observar);
 function look(d){
 	if(d){
 		desitionB = false;
-		activeAudio();
 	}
 	apiObservar = new IntersectionObserver(observar);
 	apiObservar.observe(document.body);
@@ -265,6 +271,7 @@ button.addEventListener("click", ()=>{
 
 	document.getElementById("listCapitulo").style.display = "none";
 	PLAY();
+	activeAudio();
 	
 	// button.style.display = "none";
 });
