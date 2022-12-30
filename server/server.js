@@ -60,6 +60,7 @@ app.get("/data", (req, res) =>{
 		}
 
 		if(dato.tipo == "imagen"){
+			console.log("Imagen")
 			res.send(JSON.stringify(`{"model": "i", "src": "${dato.mensaje}", "time": ${dato.time}}`));
 		}
 
@@ -68,14 +69,17 @@ app.get("/data", (req, res) =>{
 		}
 
 		if(dato.tipo == "decision"){
+			console.log("Tomada una decisión")
 			res.send(JSON.stringify(`{"model": "d", "element": "${dato.opciones}", "time": ${dato.time}}`));
 		}
 
 		if(dato.tipo == "push"){
+			console.log("Llegue al salón")
 			res.send(JSON.stringify(`{"model": "p"}`));
 		}
 
 		if(dato.tipo == "end"){
+			console.log("Ending");
 			res.send(JSON.stringify(`{"model": "end"}`));
 		}
 
