@@ -4,7 +4,7 @@ const containerEnd = document.getElementById("container-end");
 const button = document.getElementById("play");
 const soundInicial = document.querySelector(".audio")
 var desitionB = false;
-const https = "https://staymlawter.onrender.com";
+const https = "http://192.168.193.63:7535";
 // http://localhost:7535
 // https://staymlawter.onrender.com
 // http://192.168.193.63:7535
@@ -111,7 +111,7 @@ const observar = async entry =>{
 	// console.log(entry[entry.length - 1]);
 
 	
-	if(!entranda){
+	if(!entrada){
 		return;
 	}
 
@@ -133,6 +133,7 @@ const observar = async entry =>{
 		if(res2.model == "p"){
 			fetch(`${https}/data/local`);
 			look();
+			entrada = true;
 			return;
 		}
 
@@ -233,7 +234,8 @@ const observar = async entry =>{
 			if(res2.model != "d" && res2.model != "s"){
 
 				
-				apiObservar.observe(nodo);
+				look();
+				entrada = true;
 				
 			}
 
@@ -250,11 +252,12 @@ let apiObservar = new IntersectionObserver(observar);
 
 
 function look(d){
-	if(d){
-		desitionB = false;
-	}
 	apiObservar = new IntersectionObserver(observar);
 	apiObservar.observe(document.body);
+	if(d){
+		desitionB = false;
+		entrada = true;
+	}
 }
 
 
@@ -270,7 +273,7 @@ button.addEventListener("click", ()=>{
 
 	document.getElementById("listCapitulo").style.display = "none";
 	PLAY();
-	activeAudio();
+	// activeAudio();
 	
 	// button.style.display = "none";
 });
