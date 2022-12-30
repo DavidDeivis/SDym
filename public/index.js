@@ -4,7 +4,7 @@ const containerEnd = document.getElementById("container-end");
 const button = document.getElementById("play");
 const soundInicial = document.querySelector(".audio")
 var desitionB = false;
-const https = "https://staymlawter.onrender.com";
+const https = "http://192.168.193.63:7535";
 // http://localhost:7535
 // https://staymlawter.onrender.com
 // http://192.168.193.63:7535
@@ -110,10 +110,10 @@ const observar = async entry =>{
 
 	// console.log(entry[entry.length - 1]);
 
-	if(!entrada){
+	
+	if(!entranda){
 		return;
 	}
-
 
 	if((entry[entry.length - 1].isIntersecting) && desitionB == false){
 
@@ -121,7 +121,6 @@ const observar = async entry =>{
 		// console.log("envio")
 
 		entrada = false;
-
 		let peticion = await fetch(`${https}/data`);
 		let res = await peticion.json();
 
@@ -134,7 +133,6 @@ const observar = async entry =>{
 		if(res2.model == "p"){
 			fetch(`${https}/data/local`);
 			look();
-			entrada = true;
 			return;
 		}
 
@@ -164,7 +162,7 @@ const observar = async entry =>{
 				nodo.pause();
 				
 			 	look();
-			 	entrada = true;
+			 	
 			 	return;
 
 			}, res2.stop);
@@ -192,7 +190,7 @@ const observar = async entry =>{
 			}
 
 			nodo.appendChild(u);
-			entrada = true;
+			
 		}
 		else if(res2.model == "end"){
 
@@ -235,7 +233,7 @@ const observar = async entry =>{
 
 				
 				apiObservar.observe(nodo);
-				entrada = true;
+				
 			}
 
 		}, res2.time);
