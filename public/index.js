@@ -99,6 +99,7 @@ const decidido = async camino =>{
 
 }
 
+let entrada == true;
 
 const observar = async entry =>{
 
@@ -107,6 +108,10 @@ const observar = async entry =>{
 	// console.log(entry[0])
 
 	// console.log(entry[entry.length - 1]);
+
+	if(!entrada){
+		return;
+	}
 
 	if((entry[entry.length - 1].isIntersecting) && desitionB == false){
 
@@ -118,11 +123,14 @@ const observar = async entry =>{
 
 		let res2 = JSON.parse(res);
 
+		entrada = false;
+
 		// console.log(res2);
 
 		if(res2.model == "p"){
 			fetch(`${https}/data/local`);
 			look();
+			entrada = true;
 			return;
 		}
 
@@ -150,8 +158,9 @@ const observar = async entry =>{
 			setTimeout(()=>{
 
 				nodo.pause();
-
+				entrada = true;
 			 	look();
+			 	return;
 
 			}, res2.stop);
 		}
@@ -218,7 +227,7 @@ const observar = async entry =>{
 			
 			if(res2.model != "d" && res2.model != "s"){
 
-				// console.log(nodo);
+				entrada = true;
 				apiObservar.observe(nodo);
 			}
 
