@@ -1,0 +1,197 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: #5a6165;
+	font-family: 'Raleway', sans-serif;
+}
+
+html{
+	font-size: 16px;
+}
+
+body{
+	background: #BDBDBD;
+}
+
+#listCapitulo{
+	display: flex;
+	margin: 10px auto;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 10px;
+}
+
+#listCapitulo li{
+	width: 80%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+#listCapitulo input{
+	font-size: 2rem;
+	width: 30%;
+	outline: none;
+}
+
+#listCapitulo input::placeholder{
+	font-size: 2rem;
+	text-align: center;
+}
+
+#listCapitulo button{
+
+	font-size: 2rem;
+	height: 50px;
+	width: 50%;
+}
+
+.resolucion{
+	
+	height: 100vh;
+	width: 100vw;
+	background-image: url("https://www.xtrafondos.com/descargar.php?id=3042&resolucion=3840x2160");
+	background-size: 100% 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.game{
+
+	position: relative;
+
+	/*display: none;*/
+	background-image: url("https://www.wallpapertip.com/wmimgs/1-10679_anime-wallpaper-4k-sky.jpg");
+	background-size: 100% 100%;
+
+	border-radius: 5px;
+	width: 50rem;
+	height: 30rem;
+
+	-webkit-box-shadow: 0px 0px 9px 7px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 9px 7px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 9px 7px rgba(0,0,0,0.75);
+
+	padding: 0 1rem;
+
+	overflow: auto;
+
+}
+
+.chat, .clips, .game img, video, .container-desition{
+	margin: 15px auto;
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+.chat{
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.chat p{
+
+	position: relative;
+	font-size: 1.2rem;
+	width: 80%;
+	user-select: none;
+	color: white;
+	text-shadow: 0px 0px 5px black;
+	opacity: 1;
+
+}
+
+.chat div{
+	position: absolute;
+	top: 0;
+	margin: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background: black;
+	outline: 2px solid black;
+	width: 85%;
+	height: 100%;
+	opacity: 0.5;
+}
+
+.chat p span{
+	color: #cfcfcf;
+} 
+
+
+video{
+	display: block;
+	width: 85%;
+}
+
+
+.game img{
+	display: block;
+	width: auto;
+	max-width: 90%;
+	text-align: center;
+	outline: 1px solid black;
+	height: auto;
+	max-height: 100%;
+	object-fit: scale-down;
+}
+
+.container-desition{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.desition{
+	width: 34rem;
+	height: 2.5rem;
+	font-size: 1.5rem;
+	border: 1px solid black;
+	border-radius: 5px;
+	user-select: none;
+}
+
+.desition:hover{
+	opacity: .8;
+	color: black;
+}
+
+.desition:active{
+	background: blue;
+}
+
+#container-end{
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 30px;
+	gap: 30px;
+	text-align: center;
+}
+
+.imgEnd{
+
+	z-index: 600;
+	position: relative;
+
+	height: 400px;
+	width: 400px;
+	
+	opacity: 1 !important;
+	outline: 1px solid black;
+}
