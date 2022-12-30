@@ -99,7 +99,7 @@ const decidido = async camino =>{
 
 }
 
-let entrada == true;
+let entrada = true;
 
 const observar = async entry =>{
 
