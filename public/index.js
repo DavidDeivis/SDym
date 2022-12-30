@@ -162,6 +162,7 @@ const observar = async entry =>{
 				nodo.pause();
 				
 			 	look();
+			 	entrada = true;
 			 	
 			 	return;
 
