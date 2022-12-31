@@ -36,7 +36,7 @@ function comprobarCarga(){
 		setTimeout(()=>{
 
 		container.style.display = "block";
-		}, 10000);
+		}, 2000);
 
 	}
 
@@ -233,6 +233,7 @@ const observar = async entry =>{
 		}
 		else if(res2.model == "s"){
 
+
 			if(res2.src == "URLAlarma"){
 				res2.src = URLAlarma;
 			};
@@ -241,20 +242,26 @@ const observar = async entry =>{
 				res2.src = URLPiano;
 			};
 
-			audioPrincipal.src = res2.src;
+			const noma1 = document.createElement("AUDIO");
+			noma1.src = res2.src;
+			noma1.play();
+			document.body.appendChild(noma1);
 
-			audioPrincipal.play();
+			if(res2.stop == 0){
+				look();
+				entrada = true;
+				return;
+			}
 
 			setTimeout(()=>{
-
-				audioPrincipal.pause();
-				
-			 	look();
-			 	entrada = true;
-			 	
+				look();
+				entrada = true;
+				noma1.pause();
 			}, res2.stop);
 
 			return;
+
+
 		}
 		else if(res2.model == "d"){
 			desitionB = true;

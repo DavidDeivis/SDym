@@ -53,8 +53,8 @@ app.get("/piano", (req, res)=>{
 
 app.get("/alarma", (req, res)=>{
 
-	// res.writeHead(200, { 'Content-Type': "video/mp4" })
-	// res.writeHead(200, {"Content-Type": "audio/mp3"});
+	// res.writeHead(200, "OK", { 'Content-Type': "video/mp4" })
+
 
 	// path must be absolute or specify root to res.sendFile
 	// opt/render/project/src/server/node_modules/express/lib/router/route.js:144:13
@@ -65,6 +65,8 @@ app.get("/alarma", (req, res)=>{
 	//opt/render/project/src/public/sounds/alarma.mp3
 	// C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/alarma.mp3
 })
+
+
 
 
 
