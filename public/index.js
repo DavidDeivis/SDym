@@ -22,7 +22,7 @@ async function load(){
 	console.log(resultadoLoad);
 	let url = URL.createObjectURL(resultadoLoad);
 	console.log(url);
-	document.getElementById("load").src = url;
+	// document.getElementById("load").src = url;
 
 }
 
