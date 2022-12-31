@@ -4,7 +4,7 @@ const containerEnd = document.getElementById("container-end");
 const button = document.getElementById("play");
 const soundInicial = document.querySelector(".audio")
 var desitionB = false;
-const https = "https://staymlawter.onrender.com";
+const https = "http://localhost:7535";
 // http://localhost:7535
 // https://staymlawter.onrender.com
 // http://192.168.193.63:7535
@@ -26,8 +26,8 @@ function comprobarCarga(){
 			alert("Error al cargar el audio, reinica por favor");
 			return;
 		}
-		document.getElementById("cargado1").src = URLPiano;
 
+		document.getElementById("cargado1").src = URLPiano;
 		document.getElementById("cargado2").src = URLAlarma;
 
 		alert("CargaCompletada");
@@ -173,7 +173,7 @@ const decidido = async camino =>{
 
 	}
 
-	look();
+	// look();
 
 }
 
@@ -210,8 +210,9 @@ const observar = async entry =>{
 
 		if(res2.model == "p"){
 			fetch(`${https}/data/local`);
-			look();
 			entrada = true;
+			look();
+			
 			return;
 		}
 
@@ -239,6 +240,7 @@ const observar = async entry =>{
 
 			if(res2.src == "URLPiano"){
 				res2.src = URLPiano;
+				audioPrincipal.volumen = 0.05;
 			};
 
 			audioPrincipal.src = res2.src;
@@ -246,8 +248,9 @@ const observar = async entry =>{
 			audioPrincipal.play();
 
 			if(res2.stop == 0){
-				look();
 				entrada = true;
+				look();
+				
 				return;
 			}
 
@@ -255,8 +258,8 @@ const observar = async entry =>{
 
 				audioPrincipal.pause();
 				
+				entrada = true;
 			 	look();
-			 	entrada = true;
 			 	
 			}, res2.stop);
 
@@ -297,12 +300,11 @@ const observar = async entry =>{
 			end.textContent = "Ending";
 			end.src = res2.model.element;
 			end.addEventListener("click", ()=>{
-				// look();
-				// container.style.display = "none";
 
 				containerEnd.style.display = "block";
 				container.appendChild(containerEnd);
-				soundInicial.pause();
+				// soundInicial.pause();
+				audioPrincipal.pause();
 				setTimeout(()=>{
 					document.querySelector(".soundEnding").play();
 				}, 700)
@@ -324,13 +326,19 @@ const observar = async entry =>{
 				nodo.style.opacity = 1;
 			}, 100)
 			
-			if(res2.model != "d" && res2.model != "s"){
+			if(res2.model == "d"){
 
+
+				lookNodo(nodo);
+				return;
 				
-				look();
-				entrada = true;
 				
 			}
+
+			entrada = true;
+			lookNodo(nodo);
+
+
 
 		}, res2.time);
 
@@ -342,6 +350,12 @@ const observar = async entry =>{
 }
 
 let apiObservar = new IntersectionObserver(observar);
+
+
+function lookNodo(object){
+	apiObservar = new IntersectionObserver(observar);
+	apiObservar.observe(object);
+}
 
 
 function look(d){
