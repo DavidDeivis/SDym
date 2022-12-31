@@ -18,7 +18,7 @@ setTimeout(()=>{
 async function load(){
 
 	let loadCarga = await fetch(`${https}/load`);
-	let resultadoLoad = await loadCarga.blob();
+	let resultadoLoad = await loadCarga.text();
 	console.log(resultadoLoad);
 	let url = URL.createObjectURL(resultadoLoad);
 	console.log(url);

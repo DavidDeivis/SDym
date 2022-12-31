@@ -42,7 +42,7 @@ app.get("/load", (req, res)=>{
 
 	// console.log(video);
 
-	res.sendFile(path.join("https://staymlawter.onrender.com/end/dxs1.png"));
+	res.sendFile(path.join('../public/index.html'));
 	// C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/Piano.mp3
 })
 
