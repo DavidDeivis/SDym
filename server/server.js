@@ -34,6 +34,19 @@ let camino = 0;
 historia = etapas;
 
 
+
+app.get("/load", (req, res)=>{
+
+	// res.writeHead(200, { 'Content-Type': "video/mp4" })
+	// res.writeHead(200, {"Content-Type": "audio/mp3"});
+
+	// console.log(video);
+
+	res.sendFile("C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/Piano.mp3");
+})
+
+
+
 app.get("/entrada", (req, res)=>{
 	res.writeHead(200, { 'Content-Type': "HTML_CONTENT_TYPE" })
     createReadStream('../public/stast.html').pipe(res)

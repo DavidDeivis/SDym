@@ -4,10 +4,27 @@ const containerEnd = document.getElementById("container-end");
 const button = document.getElementById("play");
 const soundInicial = document.querySelector(".audio")
 var desitionB = false;
-const https = "https://staymlawter.onrender.com";
+const https = "http://192.168.193.63:7535";
 // http://localhost:7535
 // https://staymlawter.onrender.com
 // http://192.168.193.63:7535
+
+setTimeout(()=>{
+
+	load();
+
+}, 1000);
+
+async function load(){
+
+	let loadCarga = await fetch("http://192.168.193.63:7535/load");
+	let resultadoLoad = await loadCarga.blob();
+	console.log(resultadoLoad);
+	let url = URL.createObjectURL(resultadoLoad);
+	console.log(url);
+	document.getElementById("load").src = url;
+
+}
 
 
 // let headers = {
