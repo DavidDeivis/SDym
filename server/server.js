@@ -45,8 +45,8 @@ app.get("/piano", (req, res)=>{
 	// opt/render/project/src/server/node_modules/express/lib/router/route.js:144:13
 	// /opt/render/project/src/server/node_modules/express/lib/router/route.js:144:13
 
-	res.sendFile(path.join('C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/Piano.mp3'));
-	// res.sendFile(path.join('opt/render/project/src/public/sounds/Piano.mp3'));
+	// res.sendFile(path.join('C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/Piano.mp3'));
+	res.sendFile(path.join('opt/render/project/src/public/sounds/Piano.mp3'));
 
 	//opt/render/project/src/public/sounds/Piano.mp3
 	// C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/Piano.mp3
@@ -62,8 +62,8 @@ app.get("/alarma", (req, res)=>{
 	// /opt/render/project/src/server/node_modules/express/lib/router/route.js:144:13
 
 
-	res.sendFile(path.join('C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/alarma.mp3'));
-	// res.sendFile(path.join('opt/render/project/src/public/sounds/alarma.mp3'));
+	// res.sendFile(path.join('C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/alarma.mp3'));
+	res.sendFile(path.join('opt/render/project/src/public/sounds/alarma.mp3'));
 
 	//opt/render/project/src/public/sounds/alarma.mp3
 	// C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/alarma.mp3
