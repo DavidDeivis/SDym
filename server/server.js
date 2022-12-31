@@ -47,7 +47,7 @@ app.get("/load", (req, res)=>{
 	// /opt/render/project/src/server/node_modules/express/lib/router/route.js:144:13
 
 
-	res.sendFile(path.join('/opt/render/project/src/public/end/dxs1.png'));
+	res.sendFile(path.join('/opt/render/project/src/public/sounds/Piano.mp3'));
 	// C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/Piano.mp3
 })
 
