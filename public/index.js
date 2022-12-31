@@ -20,8 +20,8 @@ async function load(){
 	let loadCarga = await fetch(`${https}/load`);
 	let resultadoLoad = await loadCarga.text();
 	console.log(resultadoLoad);
-	let url = URL.createObjectURL(resultadoLoad);
-	console.log(url);
+	// let url = URL.createObjectURL(resultadoLoad);
+	// console.log(url);
 	// document.getElementById("load").src = url;
 
 }
