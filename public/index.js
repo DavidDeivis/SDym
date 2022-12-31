@@ -233,8 +233,6 @@ const observar = async entry =>{
 		}
 		else if(res2.model == "s"){
 
-			comprobar = true;
-
 			if(res2.src == "URLAlarma"){
 				res2.src = URLAlarma;
 			};
