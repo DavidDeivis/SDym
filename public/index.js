@@ -17,7 +17,7 @@ setTimeout(()=>{
 
 async function load(){
 
-	let loadCarga = await fetch("http://192.168.193.63:7535/load");
+	let loadCarga = await fetch(`${https}/load`);
 	let resultadoLoad = await loadCarga.blob();
 	console.log(resultadoLoad);
 	let url = URL.createObjectURL(resultadoLoad);
