@@ -357,8 +357,10 @@ function look(d){
 function PLAY(){
 
 	// let comenzar = fetch("http://localhost:7535/play");
+	console.log("Comenzar");
 	fetch(`${https}/play`)
 	apiObservar.observe(document.body);
+	console.log("Start");
 
 }
 
