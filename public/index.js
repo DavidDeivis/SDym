@@ -233,7 +233,6 @@ const observar = async entry =>{
 		}
 		else if(res2.model == "s"){
 
-
 			if(res2.src == "URLAlarma"){
 				res2.src = URLAlarma;
 			};
@@ -242,10 +241,9 @@ const observar = async entry =>{
 				res2.src = URLPiano;
 			};
 
-			const noma1 = document.createElement("AUDIO");
-			noma1.src = res2.src;
-			noma1.play();
-			document.body.appendChild(noma1);
+			audioPrincipal.src = res2.src;
+
+			audioPrincipal.play();
 
 			if(res2.stop == 0){
 				look();
@@ -254,14 +252,15 @@ const observar = async entry =>{
 			}
 
 			setTimeout(()=>{
-				look();
-				entrada = true;
-				noma1.pause();
+
+				audioPrincipal.pause();
+				
+			 	look();
+			 	entrada = true;
+			 	
 			}, res2.stop);
 
 			return;
-
-
 		}
 		else if(res2.model == "d"){
 			desitionB = true;
