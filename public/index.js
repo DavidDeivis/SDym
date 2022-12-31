@@ -9,22 +9,83 @@ const https = "https://staymlawter.onrender.com";
 // https://staymlawter.onrender.com
 // http://192.168.193.63:7535
 
-setTimeout(()=>{
+const audioPrincipal = document.getElementById("cargado2");
 
-	load();
 
-}, 1000);
 
-async function load(){
+let URLPiano;
+let URLAlarma;
+let numCarga = 0;
 
-	let loadCarga = await fetch(`${https}/load`);
-	let resultadoLoad = await loadCarga.blob();
-	console.log(resultadoLoad);
-	let url = URL.createObjectURL(resultadoLoad);
-	console.log(url);
-	document.getElementById("load").src = url;
+function comprobarCarga(){
+
+	numCarga++;
+
+	if(numCarga == 2){
+
+		if((URLPiano == undefined) || URLAlarma == undefined){
+			alert("Error al cargar el audio, reinica por favor");
+			return;
+		}
+		document.getElementById("cargado1").src = URLPiano;
+
+		document.getElementById("cargado2").src = URLAlarma;
+
+		alert("CargaCompletada");
+
+		setTimeout(()=>{
+
+		container.style.display = "block";
+		}, 10000);
+
+	}
 
 }
+
+
+async function loadPiano(){
+
+	try {
+		let loadCargaPiano = await fetch(`${https}/piano`);
+		let resultadoPiano = await loadCargaPiano.blob();
+
+		let urlPiano = URL.createObjectURL(resultadoPiano);
+		URLPiano = urlPiano;
+
+		document.getElementById("cargado1").src = URLPiano;
+		} catch (error) {
+		throw new Error ("Error al cargar el audio");
+	}
+
+	comprobarCarga();
+
+}
+
+async function loadAlerta(){
+
+	try {
+		let loadCargaAlarma = await fetch(`${https}/alarma`);
+		let resultadoAlarma = await loadCargaAlarma.blob();
+
+		let urlAlarma = URL.createObjectURL(resultadoAlarma);
+		URLAlarma = urlAlarma;
+
+		document.getElementById("cargado2").src = URLAlarma;
+	} catch (error) {
+		throw new Error ("Error al cargar el audio");
+	}
+
+	comprobarCarga();
+
+}
+
+
+setTimeout(()=>{
+	
+
+
+}, 5000)
+
 
 
 // let headers = {
@@ -171,20 +232,29 @@ const observar = async entry =>{
 			nodo.src = res2.src;
 		}
 		else if(res2.model == "s"){
-			var nodo = document.createElement("AUDIO");
-			nodo.src = res2.src;
-			nodo.setAttribute("autoplay", "");
+
+			if(res2.src == "URLAlarma"){
+				res2.src = URLAlarma;
+			};
+
+			if(res2.src == "URLPiano"){
+				res2.src = URLPiano;
+			};
+
+			audioPrincipal.src = res2.src;
+
+			audioPrincipal.play();
 
 			setTimeout(()=>{
 
-				nodo.pause();
+				audioPrincipal.pause();
 				
 			 	look();
 			 	entrada = true;
 			 	
-			 	return;
-
 			}, res2.stop);
+
+			return;
 		}
 		else if(res2.model == "d"){
 			desitionB = true;
@@ -302,4 +372,16 @@ function activeAudio(){
 	}, 10000)
 }
 
-const volumen = cantidad => document.querySelector(".audio").volume = cantidad; 
+const volumen = cantidad => document.querySelector(".audio").volume = cantidad;
+
+
+setTimeout(()=>{
+
+	loadPiano();
+	loadAlerta();
+
+}, 1000);
+
+
+
+

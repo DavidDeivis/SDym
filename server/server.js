@@ -35,12 +35,11 @@ historia = etapas;
 
 
 
-app.get("/load", (req, res)=>{
+app.get("/piano", (req, res)=>{
 
-	// res.writeHead(200, { 'Content-Type': "video/mp4" })
-	// res.writeHead(200, {"Content-Type": "audio/mp3"});
-
-	// console.log(video);
+	// res.writeHead(200, "OK", { 'Content-Type': "video/mp4" })
+	
+	
 
 	// path must be absolute or specify root to res.sendFile
 	// opt/render/project/src/server/node_modules/express/lib/router/route.js:144:13
@@ -48,7 +47,23 @@ app.get("/load", (req, res)=>{
 
 
 	res.sendFile(path.join('/opt/render/project/src/public/sounds/Piano.mp3'));
+	//opt/render/project/src/public/sounds/Piano.mp3
 	// C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/Piano.mp3
+});
+
+app.get("/alarma", (req, res)=>{
+
+	// res.writeHead(200, { 'Content-Type': "video/mp4" })
+	// res.writeHead(200, {"Content-Type": "audio/mp3"});
+
+	// path must be absolute or specify root to res.sendFile
+	// opt/render/project/src/server/node_modules/express/lib/router/route.js:144:13
+	// /opt/render/project/src/server/node_modules/express/lib/router/route.js:144:13
+
+
+	res.sendFile(path.join('/opt/render/project/src/public/sounds/alarma.mp3'));
+	//opt/render/project/src/public/sounds/alarma.mp3
+	// C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/alarma.mp3
 })
 
 
