@@ -87,7 +87,7 @@ body{
 .chat, .clips, .game img, video, .container-desition{
 	margin: 15px auto;
 	opacity: 0;
-	transition: opacity 1s;
+	transition: opacity 2s;
 }
 
 .chat{
