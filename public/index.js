@@ -12,7 +12,7 @@ const https = "https://staymlawter.onrender.com";
 const audioPrincipal = document.getElementById("cargado2");
 
 
-let comprobar;
+let comprobar = false;
 
 let URLPiano;
 let URLAlarma;
