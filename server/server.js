@@ -42,7 +42,8 @@ app.get("/load", (req, res)=>{
 
 	// console.log(video);
 
-	res.sendFile("C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/Piano.mp3");
+	res.sendFile("https://staymlawter.onrender.com/public/sounds/Piano.mp3");
+	// C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/Piano.mp3
 })
 
 
