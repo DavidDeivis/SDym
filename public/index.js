@@ -4,7 +4,7 @@ const containerEnd = document.getElementById("container-end");
 const button = document.getElementById("play");
 const soundInicial = document.querySelector(".audio")
 var desitionB = false;
-const https = "https://staymlawter.onrender.com";
+const https = "http://localhost:7535";
 // http://localhost:7535
 // https://staymlawter.onrender.com
 // http://192.168.193.63:7535
@@ -200,6 +200,7 @@ const observar = async entry =>{
 		// console.log("envio")
 
 		entrada = false;
+
 		let peticion = await fetch(`${https}/data`);
 		let res = await peticion.json();
 
@@ -357,12 +358,15 @@ function look(d){
 }
 
 
-function PLAY(){
+async function PLAY(){
 
 	// let comenzar = fetch("http://localhost:7535/play");
 	// console.log("Comenzar");
-	fetch(`${https}/play`)
+	let patin = await fetch(`${https}/play`);
+
+	// fetch(`${https}/play`)
 	apiObservar.observe(document.body);
+
 	console.log("Start");
 
 	setTimeout(()=>{
