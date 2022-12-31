@@ -12,6 +12,7 @@ const https = "https://staymlawter.onrender.com";
 const audioPrincipal = document.getElementById("cargado2");
 
 
+let comprobar;
 
 let URLPiano;
 let URLAlarma;
@@ -233,6 +234,8 @@ const observar = async entry =>{
 		}
 		else if(res2.model == "s"){
 
+			comprobar = true;
+
 			if(res2.src == "URLAlarma"){
 				res2.src = URLAlarma;
 			};
@@ -357,10 +360,17 @@ function look(d){
 function PLAY(){
 
 	// let comenzar = fetch("http://localhost:7535/play");
-	console.log("Comenzar");
+	// console.log("Comenzar");
 	fetch(`${https}/play`)
 	apiObservar.observe(document.body);
 	console.log("Start");
+
+	setTimeout(()=>{
+		if(comprobar == false){
+			PLAY();
+			console.log("reload");
+		}
+	}, 10000)
 
 }
 
