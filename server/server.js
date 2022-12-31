@@ -42,7 +42,7 @@ app.get("/load", (req, res)=>{
 
 	// console.log(video);
 
-	res.sendFile("/public/end/dxs1.png");
+	res.sendFile(path.join("../public/end/dxs1.png"));
 	// C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/Piano.mp3
 })
 
