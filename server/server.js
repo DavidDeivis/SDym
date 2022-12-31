@@ -42,7 +42,10 @@ app.get("/load", (req, res)=>{
 
 	// console.log(video);
 
-	res.sendFile(path.join('../public/index.html'));
+	// path must be absolute or specify root to res.sendFile
+	// opt/render/project/src/server/node_modules/express/lib/router/route.js:144:13
+
+	res.sendFile(path.join('opt/render/project/src/public/end/dxs1.png'));
 	// C:/Users/L/Documents/pasar/Project/LibroJuego/public/sounds/Piano.mp3
 })
 
